@@ -1,26 +1,53 @@
-import { CheckCircle, House, Folder, PlusSquare, Note, SignOut } from "@phosphor-icons/react";
+import {
+  CheckCircle,
+  Folder,
+  House,
+  Note,
+  PlusSquare,
+  SignOut,
+  X,
+} from '@phosphor-icons/react'
 
-import { Container, Footer, Nav, Title, Header, Button } from "./styles";
+import { Button, Container, Footer, Header, Nav, Title } from './styles'
 
-export function SideMenu() {
+export function SideMenu({ menuIsOpen, onCloseMenu }) {
   return (
-    <Container>
+    <Container data-menu-is-open={menuIsOpen}>
       <Header>
-        <Title><CheckCircle /> e-Tasks</Title>
+        <Title>
+          <CheckCircle /> e-Tasks
+        </Title>
+
+        {menuIsOpen && (
+          <Button onClick={onCloseMenu}>
+            <X />
+          </Button>
+        )}
       </Header>
 
       <Nav>
-        <a href="#" data-menu-active="true"><House /> Home</a>
-        <a href="#"><PlusSquare /> Nova tarefa</a>
-        <a href="#"><Folder /> Projetos</a>
-        <a href="#"><Note /> Relatórios</a>
+        <a href="#" data-menu-active="true">
+          <House /> Home
+        </a>
+        <a href="#">
+          <PlusSquare /> Nova tarefa
+        </a>
+        <a href="#">
+          <Folder /> Projetos
+        </a>
+        <a href="#">
+          <Note /> Relatórios
+        </a>
       </Nav>
 
       <Footer>
-        <img src="https://github.com/rodrigorgtic.png" alt="Foto do usuário" />
+        <img
+          src="https://github.com/emanueltavecia.png"
+          alt="Foto do usuário"
+        />
         <div>
-          <strong>Rodrigo Gonçalves</strong>
-          <small>rodrigo@email.com</small>
+          <strong>Emanuel Tavecia</strong>
+          <small>emanuel@mail.com</small>
         </div>
 
         <Button type="button">
@@ -28,5 +55,5 @@ export function SideMenu() {
         </Button>
       </Footer>
     </Container>
-  );
+  )
 }
